@@ -22,7 +22,9 @@
 
   <!-- Homepage Buttons -->
   <div id="homepage-buttons">
-    <button class="new-game-button">New Game</button><br>
+    {% if current_user %}
+      <button class="play-button">Play</button><br>
+    {% endif %}  
     <a href="{{login_url}}"><button class="login-button">Login</button></a>
   </div>
 </body>
