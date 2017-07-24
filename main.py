@@ -52,9 +52,9 @@ class MainHandler(webapp2.RequestHandler):
 
         # This dictionary stores the variables.
         template_vars = {
-        'current_user': current_user,
-        'logout_url': logout_url,
-        'login_url': login_url
+            'current_user': current_user,
+            'logout_url': logout_url,
+            'login_url': login_url
         }
     self.response.write(template.render(template_vars))
 

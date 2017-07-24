@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-#new-game-button, #login-button {
+.new-game-button, .login-button {
   display: block;
   margin-bottom: 1em;
   width: 20em;
