@@ -12,6 +12,9 @@ handlers:
 - url: /templates
   static_dir: templates
 
+- url: /stylesheets
+  static_dir: stylesheets
+
 - url: /images
   static_dir: images
 
