@@ -1,0 +1,12 @@
+#homepage-buttons {
+  text-align: center;
+}
+
+#new-game-button, #login-button {
+  display: block;
+  margin-bottom: 1em;
+  width: 20em;
+  height: 4em;
+  color: white;
+  background-color: gray;
+}
