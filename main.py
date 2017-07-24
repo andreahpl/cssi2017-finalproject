@@ -41,7 +41,7 @@ class Question(ndb.Model):
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template("templates/homepage.html")
-
+        
         # Creates the user login.
         current_user = users.get_current_user()
         logout_url = users.create_logout_url('/')
