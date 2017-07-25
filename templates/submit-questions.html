@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>The Great Brain Game - Submit Form</title>
-  <link href="/stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+  <link href="stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-  <form id="submit-form">
-    <input type="text" placeholder="question" value="question">
+  <form action="/" method="POST">
+    Insert a question.<br>
+    <input type="text" placeholder="Question" name="question"><br>
+    Insert 4 answer choices, seperated by commas.<br>
+    <textarea name="answer-choices" placeholder="Answer Choices" rows="4" cols="50"></textarea><br>
+    <button id="submit-button">Submit</button>
   </form>
 </body>
 
