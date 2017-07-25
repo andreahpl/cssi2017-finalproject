@@ -23,7 +23,7 @@
   text-align: center;
 }
 
-.play-button, .login-button {
+.play-button, .login-button, .logout-button {
   margin-bottom: 1em;
   width: 25%;
   height: 4em;

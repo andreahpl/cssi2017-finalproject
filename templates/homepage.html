@@ -24,8 +24,10 @@
   <div id="homepage-buttons">
     {% if current_user %}
       <button class="play-button">Play</button><br>
+      <a href="{{logout_url}}"><button class="logout-button">Logout</button></a>
+    {% else %}
+      <a href="{{login_url}}"><button class="login-button">Login</button></a>
     {% endif %}
-    <a href="{{login_url}}"><button class="login-button">Login</button></a>
   </div>
 </body>
 
