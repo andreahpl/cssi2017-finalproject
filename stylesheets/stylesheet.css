@@ -1,3 +1,7 @@
+* {
+  font-family: comic sans ms;
+}
+
 #homepage {
   /* rainbow gradient background */
   background: linear-gradient(to right, rgba(255,0,0,0.75), rgba(255,165,0,0.75), rgba(255,255,0,0.75), rgba(0,255,0,0.75), rgba(0,0,255,0.75), rgba(75,0,130,0.75), rgba(238,130,238,0.75));
@@ -7,27 +11,32 @@
   text-align: center;
 }
 
-.game-name {
+#game-name {
   font-size: 2.5em;
-  font-family: "Permanent Marker", cursive bold;
+  font-family: "Permanent Marker", cursive;
   color: black;
 }
 
 #logo {
   width: 16em;
   height: 16em;
-  margin-bottom: 1.5em;
+}
+
+#game-description {
+  line-height: 150%;
 }
 
 #homepage-buttons {
   text-align: center;
 }
 
-button {
+#play-button, #login-button, #logout-button, #submit-button {
   margin-bottom: 1em;
   width: 25%;
   height: 4em;
   background-color: rgb(180,180,180);
+  font-family: "Courier New";
+  font-weight: 900;
 }
 
 button:hover {

@@ -12,27 +12,27 @@
 
 <body id="homepage">
   <div id="name-and-logo">
-    <h2 class="game-name">The Great Brain Game - Title Screen</h2>
+    <h2 id="game-name">The Great Brain Game - Title Screen</h2>
     <img id="logo" src="images/TheGreatBrainGameLogo.png" alt="The Great Brain Game Logo">
   </div>
 
   <p id="game-description">
-
+    The Great Brain Game is a trivia and puzzle game.<br>Supplied by questions of all levels of difficulty, it allows users to test their knowledge,<br>engage in critical thinking, and ultimately think outside the box.
   </p>
 
   <!-- Homepage Buttons -->
   <div id="homepage-buttons">
     {% if current_user %}
-      <a href=>
-        <button class="play-button">Play</button>
+      <a href="/templates/game-menu.html">
+        <button id="play-button">Play</button>
       </a>
       <br>
       <a href="{{logout_url}}">
-        <button class="logout-button">Logout</button>
+        <button id="logout-button">Logout</button>
       </a>
     {% else %}
       <a href="{{login_url}}">
-        <button class="login-button">Login</button>
+        <button id="login-button">Login</button>
       </a>
     {% endif %}
   </div>
