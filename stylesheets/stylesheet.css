@@ -15,12 +15,11 @@ body {
 }
 
 h2, h4 {
-  color: white;
+  color: black;
 }
 
 h2 {
   margin-bottom: 2em;
-  text-decoration: underline;
 }
 
 #homepage {
