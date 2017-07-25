@@ -7,7 +7,7 @@ threadsafe: yes
 handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
-  upload: favicon\.ico
+  upload: images/TheGreatBrainGameLogo.png
 
 - url: /stylesheets
   static_dir: stylesheets
