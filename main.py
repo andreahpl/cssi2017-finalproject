@@ -13,20 +13,15 @@ jinja_environment = jinja2.Environment(
 
 # This is our model for our user.
 class User(ndb.Model):
-    username = ndb.StringProperty()
     email = ndb.StringProperty()
-    age = ndb.IntegerProperty()
-
+    score = ndb.Inte
 # This is our model for our questions.
 class Question(ndb.Model):
-    questionText = ndb.StringProperty()
-    answer = ndb.StringProperty()
-    category = ndb.StringProperty()
+
 
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
         template = jinja_environment.get_template('templates/homepage.html')
 
         # Creates the user login.
@@ -41,19 +36,6 @@ class MainHandler(webapp2.RequestHandler):
             'login_url': login_url
         }
         self.response.write(template.render(template_vars))
-        
-    def post(self):
-        # 1. Get information from API and saves it to database.
-        current_user = str(users.get_current_user())
-        email = str(current_user)
-
-        #2. Create a user.
-        user = User(email=email)
-
-        user.put()
-
-        #3. Create a response.
-        self.redirect('/')
 
 class GameMenuHandler(webapp2.RequestHandler):
     def get(self):
@@ -67,10 +49,15 @@ class GameHandler(webapp2.RequestHandler):
 
 class ProfilePageHandler(webapp2.RequestHandler):
     def get(self):
+        current_user = users.get_current_user()
+        template_vars = {
+            'current_user': current_user
+        }
         template = jinja_environment.get_template('templates/profile-page.html')
-        self.response.write(template.render())
-
-
+        self.response.write(template.render(template_vars))
+    def post(self):
+        current_user = users.get_current_user()
+        self.redirect("/")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
