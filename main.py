@@ -39,7 +39,7 @@ class GameMenuHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/game-menu.html')
         self.response.write(template.render())
 
-class GameHandler(webapp2.RequestHandler):
+class GamePageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/game-page.html')
         self.response.write(template.render())
@@ -59,5 +59,6 @@ class ProfilePageHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/game-menu', GameMenuHandler),
+    ('/game-page', GamePageHandler),
     ('/profile-page', ProfilePageHandler)
 ], debug=True)

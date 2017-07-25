@@ -77,3 +77,9 @@ input {
 #game-menu {
   margin-top: 10%;
 }
+
+/* Profile Page */
+.email {
+  font-size: 1.25em;
+  font-weight: 800;
+}
