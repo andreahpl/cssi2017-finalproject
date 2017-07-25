@@ -56,9 +56,18 @@ class ProfilePageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/profile-page.html')
         self.response.write(template.render())
+    def post(self):
+        # 1. Get information from API and saves it to database.
+        current_user = str(users.get_current_user())
+        email = str(current_user)
 
+        #2. Create a user.
+        user = User(email=email)
 
+        user.put()
 
+        #3. Create a response.
+        self.redirect('/')
 
 
 app = webapp2.WSGIApplication([
