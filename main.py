@@ -1,6 +1,8 @@
 import webapp2
 import os
 import jinja2
+import json
+import logging
 
 # Import the database API.
 from google.appengine.ext import ndb
@@ -8,8 +10,16 @@ from google.appengine.ext import ndb
 # Import the user built-in API.
 from google.appengine.api import users
 
+from google.appengine.api import urlfetch
+
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+# Make a questions class.
+class Question(ndb.Model):
+        question_text = ndb.StringProperty()
+        correct_answer = ndb.StringProperty()
+        incorrect_answers = ndb.StringProperty()
 
 # This is our model for our user.
 class User(ndb.Model):
@@ -41,8 +51,44 @@ class GameMenuHandler(webapp2.RequestHandler):
 
 class GamePageHandler(webapp2.RequestHandler):
     def get(self):
+        # 1. Access the url to get the results.
+        url = 'https://opentdb.com/api.php?amount=10'
+        try:
+            result = urlfetch.fetch(url)
+            if result.status_code != 200:
+                self.response.status_code = result.status_code
+                return
+
+        # 2. If something incorrect happens when fetching url, then it returns
+        # a status code and logs the error.
+        except urlfetch.Error:
+            logging.exception('Caught exception fetching url')
+            self.response.status_code = 500
+            return
+
+        # 3. Converts from JSON object to a python object and gets the result
+        # list.
+        items = json.loads(result.content)['results']
+
+        for item in items:
+            # 1. Get the questions, the correct answer, and the incorrect
+            # answers.
+            question = item['question']
+            correct_answer = item['correct_answer']
+            incorrect_answers = item['incorrect_answers']
+
+            # 2. Make one randomized answers list with both the correct and
+            # incorrect answers.
+            answers = []
+            answers.append(correct_answer)
+            answers.append(incorrect_answers)
+
+        game_page_vars = {
+            'items': items
+        }
+
         template = jinja_environment.get_template('templates/game-page.html')
-        self.response.write(template.render())
+        self.response.write(template.render(game_page_vars))
 
 class ProfilePageHandler(webapp2.RequestHandler):
     def get(self):
