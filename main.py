@@ -24,6 +24,7 @@ class Question(ndb.Model):
 # This is our model for our user.
 class User(ndb.Model):
     email = ndb.StringProperty()
+    icon = ndb.StringProperty()
     score = ndb.IntegerProperty(default=0)
 
 
@@ -99,12 +100,15 @@ class ProfilePageHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/profile-page.html')
         self.response.write(template.render(template_vars))
     def post(self):
-        current_user = users.get_current_user()
+        icon = self.request.get("user-icon")
+        email = users.get_current_user()
+        new_user = User(icon=icon,email=email)
+        new_user.put()
         self.redirect('/')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/game-menu', GameMenuHandler),
     ('/game-page', GamePageHandler),
-    ('/profile-page', ProfilePageHandler)
+    ('/profile-page', ProfilePageHandler),
 ], debug=True)

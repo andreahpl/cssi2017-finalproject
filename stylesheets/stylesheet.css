@@ -69,7 +69,6 @@ button:hover {
   cursor: pointer;
 }
 
-
 input {
   margin: 1em 0 1em 0;
 }
@@ -82,4 +81,10 @@ input {
 .email {
   font-size: 1.25em;
   font-weight: 800;
+}
+
+.user-info {
+  display: inline-block;
+  background-color: rgba(240,240,240,0.85);
+  padding-right: 0.25em;
 }
