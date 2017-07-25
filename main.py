@@ -14,15 +14,8 @@ jinja_environment = jinja2.Environment(
 # This is our model for our user.
 class User(ndb.Model):
     email = ndb.StringProperty()
-<<<<<<< HEAD
     score = ndb.IntegerProperty()
-=======
-    score = ndb.Inte
->>>>>>> fbc254f1b29ac7d7e035c806141e3eb21e0f50a5
 # This is our model for our questions.
-class Question(ndb.Model):
-
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
