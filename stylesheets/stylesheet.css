@@ -30,7 +30,7 @@
   text-align: center;
 }
 
-#play-button, #login-button, #logout-button, #submit-button {
+#play-button, #login-button, #logout-button, #profile-button, #leaderboard-button, #form-button, #submit-button {
   margin-bottom: 1em;
   width: 25%;
   height: 4em;

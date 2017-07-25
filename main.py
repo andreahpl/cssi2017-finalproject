@@ -64,5 +64,6 @@ class GameMenuHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/game-menu', GameMenuHandler)
 ], debug=True)
