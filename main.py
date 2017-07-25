@@ -53,7 +53,7 @@ class GameHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 class ProfilePageHandler(webapp2.RequestHandler):
-    def post(self):
+    def get(self):
         template = jinja_environment.get_template('templates/profile-page.html')
         self.response.write(template.render())
 
