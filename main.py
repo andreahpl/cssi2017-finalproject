@@ -51,7 +51,7 @@ class ProfilePageHandler(webapp2.RequestHandler):
             'current_user': current_user
         }
         template = jinja_environment.get_template('templates/profile-page.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_vars))
     def post(self):
         current_user = users.get_current_user()
         self.redirect('/')
