@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 /* Background Animation */
 @keyframes backgroundAnimation {
 	from { background-position: 0 0; }
@@ -8,6 +12,15 @@ body {
   animation: backgroundAnimation 40s linear infinite;
   background-size: 150%;
   font-family: comic sans ms;
+}
+
+h2, h4 {
+  color: white;
+}
+
+h2 {
+  margin-bottom: 2em;
+  text-decoration: underline;
 }
 
 #homepage {
@@ -39,8 +52,8 @@ body {
   text-align: center;
 }
 
-#play-button, #login-button, #logout-button, #profile-button, #leaderboard-button, #form-button, #submit-button {
-  margin-bottom: 1em;
+button {
+  margin-bottom: 3em;
   width: 25%;
   height: 4em;
   background-color: rgb(180,180,180);
@@ -56,10 +69,11 @@ button:hover {
   background-color: lightgray;
 }
 
-* {
-  text-align: center;
-}
 
 input {
   margin: 1em 0 1em 0;
+}
+
+#game-menu {
+  margin-top: 10%;
 }
