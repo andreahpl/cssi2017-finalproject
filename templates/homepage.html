@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 </head>
 
-<body>
+<body id="homepage">
   <div id="name-and-logo">
     <h2 class="game-name">The Great Brain Game</h2>
     <img id="logo" src="images/TheGreatBrainGameLogo.png" alt="The Great Brain Game Logo">
@@ -24,7 +24,7 @@
   <div id="homepage-buttons">
     {% if current_user %}
       <button class="play-button">Play</button><br>
-    {% endif %}  
+    {% endif %}
     <a href="{{login_url}}"><button class="login-button">Login</button></a>
   </div>
 </body>
