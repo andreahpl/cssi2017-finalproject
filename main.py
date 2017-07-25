@@ -58,6 +58,11 @@ class MainHandler(webapp2.RequestHandler):
         }
         self.response.write(template.render(template_vars))
 
+class GameMenuHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/game-menu.html')
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
 ], debug=True)
