@@ -37,12 +37,13 @@ class User(ndb.Model):
 class Question(ndb.Model):
     questionText = ndb.StringProperty()
     answer = ndb.StringProperty()
-    user_key = ndb.KeyProperty(kind=Post)
-    category = ndb.StringProperty()
+    category = ndb.ReferenceProperty()
+    difficulty = ndb.ReferenceProperty()
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template("templates/homepage.html")
+
+        template = jinja_environment.get_template(#THEHTMLFILE)
 
         # Creates the user login.
         current_user = users.get_current_user()
@@ -55,7 +56,7 @@ class MainHandler(webapp2.RequestHandler):
             'logout_url': logout_url,
             'login_url': login_url
         }
-        self.response.write(template.render(template_vars))
+    self.response.write(template.render(template_vars))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
