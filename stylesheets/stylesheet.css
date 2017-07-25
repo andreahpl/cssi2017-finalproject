@@ -9,7 +9,7 @@
 
 .game-name {
   font-size: 2.5em;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Permanent Marker", cursive bold;
   color: black;
 }
 
@@ -23,7 +23,7 @@
   text-align: center;
 }
 
-.play-button, .login-button, .logout-button {
+button {
   margin-bottom: 1em;
   width: 25%;
   height: 4em;
@@ -36,4 +36,8 @@ button:hover {
 
 * {
   text-align: center;
+}
+
+input {
+  margin: 1em 0 1em 0;
 }
