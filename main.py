@@ -63,6 +63,8 @@ class GameMenuHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/game-menu.html')
         self.response.write(template.render())
 
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/game-menu', GameMenuHandler)
 ], debug=True)
