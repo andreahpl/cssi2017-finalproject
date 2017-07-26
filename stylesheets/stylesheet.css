@@ -88,3 +88,18 @@ input {
   width: 50%;
   margin: 0 auto;
 }
+
+/* Tables */
+table {
+  margin: 0 auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+tr, th {
+  border: 1px solid #DDDDDD;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(180,180,180,0.75);
+}

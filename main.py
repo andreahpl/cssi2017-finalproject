@@ -118,9 +118,21 @@ class ProfilePageHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/profile-page.html')
         self.response.write(template.render(template_vars))
 
+class LeaderboardHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/leaderboard.html')
+        self.response.write(template.render())
+
+class SubmitQuestionsHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/submit-questions.html')
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/game-menu', GameMenuHandler),
     ('/game-page', GamePageHandler),
     ('/profile-page', ProfilePageHandler),
+    ('/leaderboard', LeaderboardHandler),
+    ('/submit-questions', SubmitQuestionsHandler)
 ], debug=True)
