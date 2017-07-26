@@ -10,6 +10,7 @@ from google.appengine.ext import ndb
 # Import the user built-in API.
 from google.appengine.api import users
 
+# Import the API to fetch data from url.
 from google.appengine.api import urlfetch
 
 jinja_environment = jinja2.Environment(
@@ -60,6 +61,9 @@ class Question(ndb.Model):
         question_text = ndb.StringProperty()
         correct_answer = ndb.StringProperty()
         incorrect_answers = ndb.StringProperty(repeated=True)
+
+# Make a photos class.
+class Photo(ndb.Model):
 
 # This is our model for our user.
 class User(ndb.Model):
