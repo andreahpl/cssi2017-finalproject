@@ -8,8 +8,16 @@
 
 <body>
   <div id="profile-page">
-    <img src="../images/user-icon.png" id="user-icon">
-    <p class="email">Welcome back <i>{{current_user}}</i> !</p>
+    <div class="dropdown-menu">
+      <button class="drop-button">Choose Icon</button>
+      <div class="dropdown-content">
+        <img src="../images/user-icon.png">
+        <img src="../images/user-icon2.png">
+      </div>
+      <br>
+      <img src="../images/user-icon.png" id="user-icon">
+    </div>
+    <p class="email">{{current_user}}</p>
     <table class="player-stats">
       <tr>
         <th>Score (Timed)</th>
