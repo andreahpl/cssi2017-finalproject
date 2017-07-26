@@ -134,5 +134,5 @@ app = webapp2.WSGIApplication([
     ('/game-page', GamePageHandler),
     ('/profile-page', ProfilePageHandler),
     ('/leaderboard', LeaderboardHandler),
-    ('/submit-questions', SubmitQuestionsHandler)
+    ('/submit-questions', SubmitQuestionsHandler),
 ], debug=True)

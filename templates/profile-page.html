@@ -8,15 +8,25 @@
 
 <body>
   <div id="profile-page">
-    <div class="dropdown-menu">
-      <button class="drop-button">Choose Icon</button>
-      <div class="dropdown-content">
+    <!-- Slideshow with Buttons -->
+    <div class="user-icon-container">
+      <!-- User Icons -->
+      <div class="user-icon">
         <img src="../images/user-icon.png">
-        <img src="../images/user-icon2.png">
+        <div class="user-icon-name">Lion</div>
       </div>
-      <br>
-      <img src="../images/user-icon.png" id="user-icon">
+      <div class="user-icon">
+        <img src="../images/user-icon2.png">
+        <div class="user-icon-name">Hippo</div>
+      </div>
+      <div class="user-icon">
+        <img src="../images/user-icon3.png">
+        <div class="user-icon-name">Monkey</div>
+      </div>
+      <!-- Buttons to change the displaying icon -->
+      
     </div>
+
     <p class="email">{{current_user}}</p>
     <table class="player-stats">
       <tr>
@@ -24,7 +34,7 @@
         <th>Score (Set of 10)</th>
       </tr>
     </table>
-</div>
+  </div>
 
 </body>
 
