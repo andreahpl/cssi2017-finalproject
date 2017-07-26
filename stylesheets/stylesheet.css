@@ -126,3 +126,11 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background-color: rgba(160,160,160,0.75);
 }
+
+/* Game Page */
+.question {
+  font-size: 1.5em;
+  border: 2px solid lightgray;
+  background-color: white;
+  padding: 0.5em 0;
+}

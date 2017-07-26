@@ -1,29 +1,27 @@
-<H2>questions</H2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Great Brain Game - Game Page</title>
+  <link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
 
-<link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+<body>
+  <h2>Questions</h2>
+  <div class ='questions' id="myDIV">
+    {% for question in questions %}
+    <div class='qna' style="display:none">
+      <p class="question">{{question['question'] }}</p>
+      {% for answer in question['answers']%}
+        <button onclick="advanceQuestion()">{{ answer }}</button>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
 
-<div class = 'questions' id="myDIV">
+  <!-- Linking Javascript files -->
+  <script src="../scripts/questions.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
 
-{% for question in questions %}
-<div class='qna' style="display:none">
-{{ question['question'] }} <br>
-
-  {% for answer in question['answers']%}
-  <button onclick="advanceQuestion()">{{ answer }}</button>
-  {% endfor %}
-</div>
-{% endfor %}
-</div>
-
-<script>
-current_question = 0;
-document.getElementsByClassName('qna')[0].style.display = "block";
-function advanceQuestion() {
-    var questions = document.getElementsByClassName('qna');
-    questions[current_question].style.display = 'none';
-    current_question += 1;
-    questions[current_question].style.display = 'block';
-}
-</script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>
