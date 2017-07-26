@@ -11,9 +11,9 @@
   <div class ='questions' id="myDIV">
     {% for question in questions %}
     <div class='qna' style="display:none">
-      <p class="question">{{question['question'] }}</p>
+      <p class="question">{{question['question'] }}</p><br>
       {% for answer in question['answers']%}
-        <button onclick="advanceQuestion()">{{ answer }}</button>
+        <button class="answer" onclick="advanceQuestion()">{{ answer }}</button>
       {% endfor %}
     </div>
     {% endfor %}

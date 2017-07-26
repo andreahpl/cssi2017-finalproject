@@ -129,8 +129,17 @@ tr:nth-child(even) {
 
 /* Game Page */
 .question {
-  font-size: 1.5em;
+  display: inline-block;
+  font-size: 1.75em;
   border: 2px solid lightgray;
   background-color: white;
-  padding: 0.5em 0;
+  padding: 0.5em 1.25em;
+}
+
+.answer {
+  display: inline-block;
+  background-color: rgb(190,190,190);
+  width: 35%;
+  font-size: 1em;
+  margin: 1em;
 }
