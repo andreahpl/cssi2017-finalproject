@@ -58,9 +58,9 @@ def pass_questions(items):
 
 # Make a questions class.
 class Question(ndb.Model):
-        question_text = ndb.StringProperty()
-        correct_answer = ndb.StringProperty()
-        incorrect_answers = ndb.StringProperty(repeated=True)
+    question_text = ndb.StringProperty()
+    correct_answer = ndb.StringProperty()
+    incorrect_answers = ndb.StringProperty(repeated=True)
 
 # Make a photos class.
 class Photo(ndb.Model):
