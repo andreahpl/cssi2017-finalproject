@@ -86,5 +86,5 @@ input {
 .user-info {
   display: inline-block;
   background-color: rgba(240,240,240,0.85);
-  padding-right: 0.25em;
+  padding: 0 2em;
 }
