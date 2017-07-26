@@ -3,6 +3,8 @@ import os
 import jinja2
 import json
 import logging
+import random
+
 
 # Import the database API.
 from google.appengine.ext import ndb
@@ -107,8 +109,33 @@ class GameMenuHandler(webapp2.RequestHandler):
 
 class GamePageHandler(webapp2.RequestHandler):
     def get(self):
+        # Query and Fetch 10 random questions.
+        question_query = Question.query()
+        questions = question_query.fetch()
+
+
+        # Randomized set of 10 questions.
+        random_set_10=[]
+        for i in range(10):
+            question_index = random.randint(0,len(questions)-1)
+            question = questions[question_index]
+            answers = question.incorrect_answers
+            answers.append(question.correct_answer)
+            random.shuffle(answers)
+            random_set_10.append(
+            {
+            'question': question.question_text,
+            'answers': answers
+            }
+            )
+
+        # This dictionary stores the variables.
+        game_page_vars = {
+        'questions': random_set_10
+        }
+
         template = jinja_environment.get_template('templates/game-page.html')
-        self.response.write(template.render())
+        self.response.write(template.render(game_page_vars))
 
 class ProfilePageHandler(webapp2.RequestHandler):
     def get(self):
