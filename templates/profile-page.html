@@ -8,10 +8,10 @@
 
 <body>
   <div class="user-info">
-    <img id="user-icon" src="{{icon}}" name="user-icon">
+    <img id="user-icon" src="" name="user-icon">
     <form id="upload-user-icon" method="POST" action="/profile-page">
-      <input type="file" name="user-icon">
-      <button id="submit-user-icon">Upload</button>
+      <input type="text" name="user-icon-url">
+      <input type="submit" id="submit-user-icon" value="Upload">
     </form>
     <p class="email">{{current_user}}</p>
   </div>
