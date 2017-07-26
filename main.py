@@ -15,11 +15,51 @@ from google.appengine.api import urlfetch
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+def read_questions():
+    # 1. Access the url to get the results.
+    url = 'https://opentdb.com/api.php?amount=100'
+    try:
+        result = urlfetch.fetch(url)
+        if result.status_code != 200:
+            self.response.status_code = result.status_code
+            return
+
+    # 2. If something incorrect happens when fetching url, then it returns
+    # a status code and logs the error.
+    except urlfetch.Error:
+        logging.exception('Caught exception fetching url')
+        self.response.status_code = 500
+        return
+
+    # 3. Converts from JSON object to a python object and gets the result
+    # list.
+    items = json.loads(result.content)['results']
+
+    return items
+
+def pass_questions(items):
+    for item in items:
+        # 1. Get the questions, the correct answer, and the incorrect
+        # answers.
+        question_text = item['question']
+        correct_answer = item['correct_answer']
+        incorrect_answers = item['incorrect_answers']
+
+        # 2. Store this information into a question model.
+        question = Question(
+                   question_text=question_text,
+                   correct_answer=correct_answer,
+                   incorrect_answers=incorrect_answers)
+
+        # 3. Save question into the database.
+        question.put()
+
+
 # Make a questions class.
 class Question(ndb.Model):
         question_text = ndb.StringProperty()
         correct_answer = ndb.StringProperty()
-        incorrect_answers = ndb.StringProperty()
+        incorrect_answers = ndb.StringProperty(repeated=True)
 
 # This is our model for our user.
 class User(ndb.Model):
@@ -36,11 +76,18 @@ class MainHandler(webapp2.RequestHandler):
         logout_url = users.create_logout_url('/')
         login_url = users.create_login_url('/')
 
+        questions = Question.query().fetch()
+
+        # If there are no questions in the database, add defaults.
+        # This will only happen one time (on the first run).
+        if not questions:
+            questions = pass_questions(read_questions())
         # This dictionary stores the variables.
         template_vars = {
             'current_user': current_user,
             'logout_url': logout_url,
             'login_url': login_url,
+            'questions': questions
         }
         self.response.write(template.render(template_vars))
 
@@ -51,44 +98,8 @@ class GameMenuHandler(webapp2.RequestHandler):
 
 class GamePageHandler(webapp2.RequestHandler):
     def get(self):
-        # 1. Access the url to get the results.
-        url = 'https://opentdb.com/api.php?amount=10'
-        try:
-            result = urlfetch.fetch(url)
-            if result.status_code != 200:
-                self.response.status_code = result.status_code
-                return
-
-        # 2. If something incorrect happens when fetching url, then it returns
-        # a status code and logs the error.
-        except urlfetch.Error:
-            logging.exception('Caught exception fetching url')
-            self.response.status_code = 500
-            return
-
-        # 3. Converts from JSON object to a python object and gets the result
-        # list.
-        items = json.loads(result.content)['results']
-
-        for item in items:
-            # 1. Get the questions, the correct answer, and the incorrect
-            # answers.
-            question = item['question']
-            correct_answer = item['correct_answer']
-            incorrect_answers = item['incorrect_answers']
-
-            # 2. Make one randomized answers list with both the correct and
-            # incorrect answers.
-            answers = []
-            answers.append(correct_answer)
-            answers.append(incorrect_answers)
-
-        game_page_vars = {
-            'items': items
-        }
-
         template = jinja_environment.get_template('templates/game-page.html')
-        self.response.write(template.render(game_page_vars))
+        self.response.write(template.render())
 
 class ProfilePageHandler(webapp2.RequestHandler):
     def get(self):
