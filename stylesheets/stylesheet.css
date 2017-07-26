@@ -78,10 +78,39 @@ input {
 }
 
 /* Profile Page */
+.drop-button {
+  width: auto;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: block;
+}
+
+.dropdown-menu:hover .dropdown-content {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  margin-top: 1em;
+}
+
+.dropdown-content img {
+  margin-top: -1em;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
 .email {
   font-size: 1.25em;
   font-weight: 800;
   margin: 0;
+  letter-spacing: 2px;
+  color: RoyalBlue;
+  text-shadow: 2px 0 skyblue;
 }
 
 #profile-page {
@@ -91,7 +120,7 @@ input {
 }
 
 #user-icon {
-  margin-top: 1em;
+  margin-top: 0 auto;
 }
 
 /* Tables */
