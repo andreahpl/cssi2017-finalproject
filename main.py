@@ -64,6 +64,10 @@ class Question(ndb.Model):
 
 # Make a photos class.
 class Photo(ndb.Model):
+    photo_url = ndb.StringProperty()
+    correct_answer = ndb.StringProperty()
+    incorrect_answers = ndb.StringProperty(repeated=True)
+
 
 # This is our model for our user.
 class User(ndb.Model):
