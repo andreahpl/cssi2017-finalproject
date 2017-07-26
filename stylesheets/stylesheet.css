@@ -81,25 +81,35 @@ input {
 .email {
   font-size: 1.25em;
   font-weight: 800;
+  margin: 0;
 }
 
 #profile-page {
-  background-color: rgba(180,180,180,0.75);
-  width: 50%;
+  background-color: rgba(180,180,180,0.95);
+  width: 40%;
   margin: 0 auto;
+}
+
+#user-icon {
+  margin-top: 1em;
 }
 
 /* Tables */
 table {
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid gray;
   border-collapse: collapse;
 }
 
-tr, th {
-  border: 1px solid #DDDDDD;
+td, th {
+  border: 1px solid gray;
+  width: 18em;
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(255,255,255,0.75);
 }
 
 tr:nth-child(even) {
-  background-color: rgba(180,180,180,0.75);
+  background-color: rgba(160,160,160,0.75);
 }
