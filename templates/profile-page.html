@@ -9,24 +9,34 @@
 <body>
   <div id="profile-page">
     <!-- Slideshow with Buttons -->
-    <div class="user-icon-container">
-      <!-- User Icons -->
-      <div class="user-icon">
+    <div class="slideshow-container">
+      <div class="mySlides">
         <img src="../images/user-icon.png">
-        <div class="user-icon-name">Lion</div>
+        <div class="text">Lion</div>
       </div>
-      <div class="user-icon">
-        <img src="../images/user-icon2.png">
-        <div class="user-icon-name">Hippo</div>
-      </div>
-      <div class="user-icon">
-        <img src="../images/user-icon3.png">
-        <div class="user-icon-name">Monkey</div>
-      </div>
-      <!-- Buttons to change the displaying icon -->
-      
-    </div>
 
+      <div class="mySlides">
+        <img src="../images/user-icon2.png">
+        <div class="text">Hippo</div>
+      </div>
+
+      <div class="mySlides">
+        <img src="../images/user-icon3.png">
+        <div class="text">Monkey</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+    <!-- Slideshow JS -->
+    <script src="../scripts/icons.js"></script>
     <p class="email">{{current_user}}</p>
     <table class="player-stats">
       <tr>
