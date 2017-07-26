@@ -7,16 +7,24 @@
 </head>
 
 <body>
-  <div class="user-info">
-    <img id="user-icon" src="{{icon}}" name="user-icon">
-    <form id="upload-user-icon" method="POST" action="/profile-page">
-      <input type="file" name="user-icon">
-      <button id="submit-user-icon">Upload</button>
-    </form>
+  <div id="profile-page">
+    <div class="dropdown-menu">
+      <button class="drop-button">Choose Icon</button>
+      <div class="dropdown-content">
+        <img src="../images/user-icon.png">
+        <img src="../images/user-icon2.png">
+      </div>
+      <br>
+      <img src="../images/user-icon.png" id="user-icon">
+    </div>
     <p class="email">{{current_user}}</p>
-  </div>
-  <div class="player-stats">
-  </div>
+    <table class="player-stats">
+      <tr>
+        <th>Score (Timed)</th>
+        <th>Score (Set of 10)</th>
+      </tr>
+    </table>
+</div>
 
 </body>
 

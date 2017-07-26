@@ -60,9 +60,9 @@ def pass_questions(items):
 
 # Make a questions class.
 class Question(ndb.Model):
-        question_text = ndb.StringProperty()
-        correct_answer = ndb.StringProperty()
-        incorrect_answers = ndb.StringProperty(repeated=True)
+    question_text = ndb.StringProperty()
+    correct_answer = ndb.StringProperty()
+    incorrect_answers = ndb.StringProperty(repeated=True)
 
 # Make a photos class.
 class Photo(ndb.Model):
@@ -74,7 +74,6 @@ class Photo(ndb.Model):
 # This is our model for our user.
 class User(ndb.Model):
     email = ndb.StringProperty()
-    icon = ndb.StringProperty()
     score = ndb.IntegerProperty(default=0)
 
 
@@ -145,16 +144,22 @@ class ProfilePageHandler(webapp2.RequestHandler):
         }
         template = jinja_environment.get_template('templates/profile-page.html')
         self.response.write(template.render(template_vars))
-    def post(self):
-        icon = self.request.get("user-icon")
-        email = users.get_current_user()
-        new_user = User(icon=icon,email=email)
-        new_user.put()
-        self.redirect('/')
+
+class LeaderboardHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/leaderboard.html')
+        self.response.write(template.render())
+
+class SubmitQuestionsHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/submit-questions.html')
+        self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/game-menu', GameMenuHandler),
     ('/game-page', GamePageHandler),
     ('/profile-page', ProfilePageHandler),
+    ('/leaderboard', LeaderboardHandler),
+    ('/submit-questions', SubmitQuestionsHandler)
 ], debug=True)

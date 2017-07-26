@@ -10,7 +10,7 @@
 body {
   background-image: url("../images/background-image.jpg");
   animation: backgroundAnimation 40s linear infinite;
-  background-size: 140%;
+  background-size: 150%;
   font-family: comic sans ms;
 }
 
@@ -78,13 +78,67 @@ input {
 }
 
 /* Profile Page */
+.drop-button {
+  width: auto;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: block;
+}
+
+.dropdown-menu:hover .dropdown-content {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  margin-top: 1em;
+}
+
+.dropdown-content img {
+  margin-top: -1em;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
 .email {
   font-size: 1.25em;
   font-weight: 800;
+  margin: 0;
+  letter-spacing: 2px;
+  color: RoyalBlue;
+  text-shadow: 2px 0 skyblue;
 }
 
-.user-info {
-  display: inline-block;
-  background-color: rgba(240,240,240,0.85);
-  padding-right: 0.25em;
+#profile-page {
+  background-color: rgba(200,200,200,0.90);
+  width: 40%;
+  margin: 0 auto;
+}
+
+#user-icon {
+  margin-top: 0 auto;
+}
+
+/* Tables */
+table {
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid gray;
+  width: 18em;
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(255,255,255,0.75);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(160,160,160,0.75);
 }
