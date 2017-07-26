@@ -115,9 +115,8 @@ class GamePageHandler(webapp2.RequestHandler):
 
         # Randomized set of 10 questions.
         random_set_10=[]
-        for i in range(10):
-            question_index = random.randint(0,len(questions)-1)
-            question = questions[question_index]
+        question_list = random.sample(questions, 10)
+        for question in question_list:
             answers = question.incorrect_answers
             answers.append(question.correct_answer)
             random.shuffle(answers)

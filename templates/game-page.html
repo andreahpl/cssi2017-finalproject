@@ -1,17 +1,16 @@
 <H2>questions</H2>
 
-<button onclick="advanceQuestion()">Begin</button>
+<link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+
 <div class = 'questions' id="myDIV">
 
 {% for question in questions %}
 <div class='qna' style="display:none">
 {{ question['question'] }} <br>
 
-<ul>
   {% for answer in question['answers']%}
-  <li>{{ answer }}</li>
+  <button onclick="advanceQuestion()">{{ answer }}</button>
   {% endfor %}
-</ul>
 </div>
 {% endfor %}
 </div>
