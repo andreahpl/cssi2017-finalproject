@@ -64,6 +64,10 @@ a {
   display: block;
 }
 
+.back-button {
+  width: 10%;
+}
+
 button:hover {
   background-color: rgb(220,220,220);
   cursor: pointer;
@@ -74,7 +78,7 @@ input {
 }
 
 #game-menu {
-  margin-top: 10%;
+  margin-top: 8%;
 }
 
 /* Profile Page */
@@ -94,6 +98,10 @@ input {
 }
 
 /* Slideshow */
+.user-icon {
+  margin-top: 0.5em;
+}
+
 .text {
   font-size: 0.9em;
 }
