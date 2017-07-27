@@ -12,6 +12,9 @@ function advanceQuestion(buttonElement) {
     var questions = document.getElementsByClassName('qna');
     questions[current_question].style.display = 'none';
     current_question += 1;
+    if(current_question == 11) {
+
+    }
     questions[current_question].style.display = 'block';
 
 }

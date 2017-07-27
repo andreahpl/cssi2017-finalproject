@@ -75,6 +75,7 @@ class Photo(ndb.Model):
 class User(ndb.Model):
     email = ndb.StringProperty()
     score = ndb.IntegerProperty(default=0)
+    current_score = ndb.IntegerProperty(default=0)
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -116,6 +117,18 @@ class GamePageHandler(webapp2.RequestHandler):
         # Query and Fetch 10 random questions.
         question_query = Question.query()
         questions = question_query.fetch()
+
+        current_user_email = users.get_current_user().email()
+
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
+
+        if not user:
+            user = User(email=current_user_email)
+            user.put()
+
+        user.current_score = 0
+        user.put()
 
 
         # Randomized set of 10 questions.
@@ -170,13 +183,30 @@ class SubmitQuestionsHandler(webapp2.RequestHandler):
 class ScoreHandler(webapp2.RequestHandler):
     def post(self):
 
-        q_key = self.request.get('question_key')
+        print 'Hi'
+
+        q_key_url = self.request.get('question_key')
         answer = self.request.get('answer')
 
+        q_key = ndb.Key(urlsafe=q_key_url)
+
         # TODO: Check if the answer is correct, if so update the score.
+        correct_answer = q_key.get().correct_answer
 
-        print q_key, answer
+        if answer == correct_answer:
+            current_user_email = users.get_current_user().email()
 
+            user_query = User.query(User.email == current_user_email)
+            user = user_query.get()
+
+            user.current_score += 1
+            user.put()
+
+            if user.current_score > user.score:
+                user.score = user.current_score
+                user.put()
+
+        self.response.write('Ok.')
 
 
         # TODO: Later, possibly return the score.
