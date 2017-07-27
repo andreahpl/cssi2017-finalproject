@@ -234,14 +234,12 @@ class ScoreHandler(webapp2.RequestHandler):
         correct_answer = q_key.get().correct_answer
 
         if answer == correct_answer:
-
             user.current_score += 1
             user.put()
 
             if user.current_score > user.score:
                 user.score = user.current_score
                 user.put()
-
         self.response.write(user.current_score)
 
 app = webapp2.WSGIApplication([
