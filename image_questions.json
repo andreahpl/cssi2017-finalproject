@@ -1,16 +1,14 @@
-{"results": [
+[
     {
         "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Cherry_bowl.jpg",
         "correct_answer": "Cherry",
-        "incorrect_answers": ["Tomato","Rudolph's Nose","Red Ball"],
+        "incorrect_answers": ["Tomato","Rudolph's Nose","Red Ball"]
     },
 
     {     "photo_url": "https://static.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg",
           "correct_answer":"Rose",
-          "incorrect_answers":["Pillow","Fish","Cotton Candy"]
-
-    },
-    {
+          "incorrect_answers":["Pillow","Fish","Cotton Candy"]},
+{
           "photo_url": "http://www.publicdomainpictures.net/pictures/160000/velka/swallowtail-butterfly-14567761223sj.jpg",
           "correct_answer":"Butterfly",
           "incorrect_answers":["Sand","Rock","Feather"]
@@ -84,7 +82,7 @@
     {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Popeyes_Cajun_Battered_.JPG/1280px-Popeyes_Cajun_Battered_.JPG",
           "correct_answer":"",
-          "incorrect_answers":["Pretzel Sticks","Fried Rice","Cheese""]},
+          "incorrect_answers":["Pretzel Sticks","Fried Rice","Cheese"]},
     {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Chocolate_Frosted_Donut_%28Coffee_An%29%2C_Westport%2C_CT_06880_USA_-_Mar_2013.jpg",
           "correct_answer":"Donut",
@@ -429,4 +427,6 @@
 {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/First_day_of_the_summer_in_the_Alpine_flowers_of_Sun_Peaks...Common_Red_Paintbrush_%28Castilleja_miniata%29...usually_red%2C_sometimes_pink_or_white_even..._%2828295531985%29.jpg",
           "correct_answer":"Flower",
-          "incorrect_answers":["Crab","Lobster","Bird of Paradise"]}}
+          "incorrect_answers":["Crab","Lobster","Bird of Paradise"]
+
+    }]
