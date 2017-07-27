@@ -76,7 +76,7 @@ class User(ndb.Model):
     email = ndb.StringProperty()
     score = ndb.IntegerProperty(default=0)
     current_score = ndb.IntegerProperty(default=0)
-
+    image_high_score = ndb.IntegerProperty(default=0)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -88,11 +88,19 @@ class MainHandler(webapp2.RequestHandler):
         login_url = users.create_login_url('/')
 
         questions = Question.query().fetch()
+        photos = Photo.query().fetch()
 
         # If there are no questions in the database, add defaults.
         # This will only happen one time (on the first run).
         if not questions:
             questions = pass_questions(read_questions())
+
+        if not photos:
+            with open("image_questions.json") as f:
+                photos = json.load(f)
+                for photo in photos:
+                    picture = Photo(**photo)
+                    picture.put()
         # This dictionary stores the variables.
         template_vars = {
             'current_user': current_user,
@@ -175,6 +183,71 @@ class GamePageHandler(webapp2.RequestHandler):
             if user.current_score > user.score:
                 user.score = user.current_score
                 user.put()
+
+class ImagePageHandler(webapp2.RequestHandler):
+    def get(self):
+        # Query and Fetch 10 random questions.
+        photo_query = Photo.query()
+        photos = photo_query.fetch()
+
+        current_user_email = users.get_current_user().email()
+
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
+
+        if not user:
+            user = User(email=current_user_email)
+            user.put()
+
+        user.current_score = 0
+        user.put()
+
+
+        # Randomized set of 10 questions.
+        random_set_10=[]
+        photo_list = random.sample(questions, 10)
+        for photo in photo_list:
+            answers = photo.incorrect_answers
+            answers.append(photo.correct_answer)
+            random.shuffle(answers)
+            random_set_10.append(
+            {
+            'photo': photo.photo_url,
+            'answers': answers,
+            'photo_key': photo.key.urlsafe()
+            }
+            )
+
+        # This dictionary stores the variables.
+        image_page_vars = {
+            'photos': random_set_10,
+            "user": user,
+        }
+
+        template = jinja_environment.get_template('templates/image_page.html')
+        self.response.write(template.render(image_page_vars))
+    def post(self):
+        current_user_email = users.get_current_user().email()
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
+
+        p_key_url = self.request.get('photo_key')
+        answer = self.request.get('answer')
+
+        p_key = ndb.Key(urlsafe=p_key_url)
+
+        # TODO: Check if the answer is correct, if so update the score.
+        correct_answer = p_key.get().correct_answer
+
+        if answer == correct_answer:
+
+            user.current_score += 1
+            user.put()
+
+            if user.current_score > user.image_high_score:
+                user.image_high_score = user.current_score
+                user.put()
+
 
 
 class ProfilePageHandler(webapp2.RequestHandler):
