@@ -327,5 +327,6 @@ app = webapp2.WSGIApplication([
     ('/profile-page', ProfilePageHandler),
     ('/leaderboard', LeaderboardHandler),
     ('/submit-questions', SubmitQuestionsHandler),
-    ('/score', ScoreHandler)
+    ('/score', ScoreHandler),
+    ('/image-page', ImagePageHandler)
 ], debug=True)
