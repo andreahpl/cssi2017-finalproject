@@ -151,6 +151,13 @@ tr:nth-child(even) {
   margin: 1em;
 }
 
+.scoreScreen {
+  font-size: 2em;
+}
+
+#score {
+  margin-top: 1em;
+}
 
 /* Submit Questions Page */
 #submit-questions-form {
