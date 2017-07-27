@@ -104,6 +104,7 @@ input {
 
 .text {
   font-size: 0.9em;
+  margin-bottom: 0.25em;
 }
 
 .prev, .next {
