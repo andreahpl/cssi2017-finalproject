@@ -1,17 +1,28 @@
 var current_question = 0;
 document.getElementsByClassName('qna')[0].style.display = "block";
 document.getElementsByClassName('scoreScreen')[0].style.display = "none";
-function advanceQuestion(buttonElement) {
+function checkQuestion(buttonElement) {
       // TODO: Get all info needed from the button.dataset and button.innerText.
       console.log(buttonElement.dataset.questionKey);
       console.log(buttonElement.innerText);
 
       $.post('/score', {question_key: buttonElement.dataset.questionKey,
-        answer: buttonElement.innerText}, function(score){
+        answer: buttonElement.innerText}, function(response){
+          var values = JSON.parse(response);
           //Changes the text within the span id'd "score"
-          $('#score').text(score);
-        });
+          $('#score').text(values.score);
+          if (values.correct) {
+            $(buttonElement).css({"background-color":"green"});
+          }
+          else {
+            $(buttonElement).css({"background-color":"red"});
+          }
 
+          setTimeout(advanceQuestion, 1000);
+        });
+}
+
+function advanceQuestion() {
     var questions = document.getElementsByClassName('qna');
     questions[current_question].style.display = 'none';
     current_question += 1;
@@ -23,5 +34,5 @@ function advanceQuestion(buttonElement) {
     }
     else {
       questions[current_question].style.display = 'block';
-    }
+  }
 }

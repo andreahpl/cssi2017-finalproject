@@ -18,13 +18,15 @@
     <div class='qna' style="display:none">
       <p class="question">{{question['question'] }}</p><br>
       {% for answer in question['answers']%}
-        <button data-question-key='{{question['question_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
+        <button data-question-key='{{question['question_key']}}' class="answer" onclick="checkQuestion(this)">{{ answer }}</button>
       {% endfor %}
     </div>
     {% endfor %}
     <div class="scoreScreen">
-      Your Score:<br>
-      <span id="score">{{user.current_score}}</span>
+      <div class="score-display">
+        Your Score:<br>
+        <span id="score">{{user.current_score}}</span>
+      </div>
       <a href="/game-page">
         <button>Play Again</button>
       </a>

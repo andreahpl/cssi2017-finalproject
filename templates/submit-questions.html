@@ -14,7 +14,7 @@
 
   <form id="submit-questions-form" action="/submit-questions" method="POST">
     <h4 style="padding-top: 1em;">Insert a question.</h4>
-    <input type="text" placeholder="Question" name="question_text">
+    <textarea placeholder="Question" name="question_text" cols="40"></textarea>
     <h4>Insert 4 answer choices. <em>(Insert the correct answer as Choice A!)</em></h4>
     Choice A:<br><input type="text" placeholder="Correct Answer" name="correct_answer"><br><br>
     Choice B,C,D (Separated by commas but no space):<br><textarea rows="5" cols="50" name="incorrect_answers"></textarea><br><br>

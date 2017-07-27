@@ -20,7 +20,7 @@ jinja_environment = jinja2.Environment(
 
 def read_questions():
     # 1. Access the url to get the results.
-    url = 'https://opentdb.com/api.php?amount=100'
+    url = 'https://opentdb.com/api.php?amount=50'
     try:
         result = urlfetch.fetch(url)
         if result.status_code != 200:
@@ -248,7 +248,12 @@ class ScoreHandler(webapp2.RequestHandler):
             if user.current_score > user.score:
                 user.score = user.current_score
                 user.put()
-        self.response.write(user.current_score)
+        response = {
+            "score": user.current_score,
+            "correct": answer == correct_answer,
+        }
+
+        self.response.write(json.dumps(response))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
