@@ -152,6 +152,12 @@ tr:nth-child(even) {
 }
 
 /* Submit Questions Page */
+#submit-questions-form {
+  background-color: rgba(135,206,255,0.75);
+  width: 50%;
+  margin: 0 auto;
+}
+
 textarea {
   margin-top: 0.5em;
   resize: none;
