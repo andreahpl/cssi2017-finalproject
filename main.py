@@ -104,7 +104,12 @@ class MainHandler(webapp2.RequestHandler):
 class GameMenuHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/game-menu.html')
-        self.response.write(template.render())
+        # Allows user to logout
+        logout_url = users.create_logout_url('/')
+        template_vars = {
+            'logout_url': logout_url,
+        }
+        self.response.write(template.render(template_vars))
 
 class GamePageHandler(webapp2.RequestHandler):
     def get(self):
