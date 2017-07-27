@@ -1,21 +1,21 @@
-var slideIndex = 1;
-showSlides(slideIndex);
+var iconIndex = 1;
+showIcons(iconIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function plusIcons(n) {
+  showIcons(iconIndex += n);
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function currentIcon(n) {
+  showIcons(iconIndex = n);
 }
 
-function showSlides(n) {
+function showIcons(n) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+  var icons = document.getElementsByClassName("userIcons");
+  if (n > icons.length) {iconIndex = 1}
+  if (n < 1) {iconIndex = icons.length}
+  for (i = 0; i < icons.length; i++) {
+      icons[i].style.display = "none";
   }
-  slides[slideIndex-1].style.display = "block";
+  icons[iconIndex-1].style.display = "block";
 }

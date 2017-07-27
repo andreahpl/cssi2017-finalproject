@@ -52,7 +52,7 @@ h2 {
 }
 
 button {
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
   width: 25%;
   height: 4em;
   background-color: rgb(170,170,170);
@@ -78,7 +78,7 @@ input {
 }
 
 #game-menu {
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 /* Profile Page */
@@ -110,6 +110,7 @@ input {
   display: inline-block;
   padding: 0em 2em;
   transition: 0.5s ease;
+  border: 1px solid rgb(80,80,80);
 }
 
 /* Tables */
