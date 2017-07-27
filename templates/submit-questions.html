@@ -14,12 +14,12 @@
 
   <form action="/" method="POST">
     <h4>Insert a question.</h4>
-    <input type="text" placeholder="Question" name="submit-form-question">
-    <h4>Insert 4 answer choices.</h4>
-    Choice A: <input type="text" placeholder="Choice A" name="submit-form-choiceA"><br><br>
-    Choice B: <input type="text" placeholder="Choice B" name="submit-form-choiceB"><br><br>
-    Choice C: <input type="text" placeholder="Choice C" name="submit-form-choiceC"><br><br>
-    Choice D: <input type="text" placeholder="Choice D" name="submit-form-choiceD"><br><br>
+    <input type="text" placeholder="Question" name="question_text">
+    <h4>Insert 4 answer choices. <em>(Insert the correct answer as Choice A!)</em></h4>
+    Choice A: <input type="text" placeholder="Choice A" name="correct_answer"><br><br>
+    Choice B: <input type="text" placeholder="Choice B" name="incorrect_answers"><br><br>
+    Choice C: <input type="text" placeholder="Choice C" name="incorrect_answers"><br><br>
+    Choice D: <input type="text" placeholder="Choice D" name="incorrect_answers"><br><br>
     <button id="submit-button">Submit</button>
   </form>
 </body>
