@@ -148,25 +148,60 @@ class GamePageHandler(webapp2.RequestHandler):
 
         # This dictionary stores the variables.
         game_page_vars = {
-        'questions': random_set_10
+            'questions': random_set_10,
+            "user": user,
         }
 
         template = jinja_environment.get_template('templates/game-page.html')
         self.response.write(template.render(game_page_vars))
+    def post(self):
+        current_user_email = users.get_current_user().email()
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
+
+        q_key_url = self.request.get('question_key')
+        answer = self.request.get('answer')
+
+        q_key = ndb.Key(urlsafe=q_key_url)
+
+        # TODO: Check if the answer is correct, if so update the score.
+        correct_answer = q_key.get().correct_answer
+
+        if answer == correct_answer:
+
+            user.current_score += 1
+            user.put()
+
+            if user.current_score > user.score:
+                user.score = user.current_score
+                user.put()
+
 
 class ProfilePageHandler(webapp2.RequestHandler):
     def get(self):
+        current_user_email = users.get_current_user().email()
+        # Find the user entity where the entity's email matches the current user's email
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
+
         current_user = users.get_current_user()
         template_vars = {
-            'current_user': current_user
+            'current_user': current_user,
+            'user': user,
         }
         template = jinja_environment.get_template('templates/profile-page.html')
         self.response.write(template.render(template_vars))
 
 class LeaderboardHandler(webapp2.RequestHandler):
     def get(self):
+        user_query = User.query().order(-User.score)
+        users = user_query.fetch()
+
+        template_vars = {
+            'users': users
+        }
         template = jinja_environment.get_template('templates/leaderboard.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_vars))
 
 class SubmitQuestionsHandler(webapp2.RequestHandler):
     def get(self):
@@ -185,8 +220,10 @@ class SubmitQuestionsHandler(webapp2.RequestHandler):
 
 class ScoreHandler(webapp2.RequestHandler):
     def post(self):
-
-        print 'Hi'
+        current_user_email = users.get_current_user().email()
+        # Find the user entity where the entity's email matches the current user's email
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
 
         q_key_url = self.request.get('question_key')
         answer = self.request.get('answer')
@@ -197,10 +234,6 @@ class ScoreHandler(webapp2.RequestHandler):
         correct_answer = q_key.get().correct_answer
 
         if answer == correct_answer:
-            current_user_email = users.get_current_user().email()
-
-            user_query = User.query(User.email == current_user_email)
-            user = user_query.get()
 
             user.current_score += 1
             user.put()
@@ -209,33 +242,7 @@ class ScoreHandler(webapp2.RequestHandler):
                 user.score = user.current_score
                 user.put()
 
-        self.response.write('Ok.')
-
-
-        # TODO: Later, possibly return the score.
-        # self.response.write
-
-        # Handles increasing the scores when you click the button.
-                # === 1: Get info from the request. ===
-        # urlsafe_key = self.request.get('photo_key')
-        #
-        # # === 2: Interact with the database. ===
-        #
-        # # Use the URLsafe key to get the photo from the DB.
-        # photo_key = ndb.Key(urlsafe=urlsafe_key)
-        # photo = photo_key.get()
-        #
-        # # Fix the photo like count just in case it is None.
-        # if photo.like_count == None:
-        #     photo.like_count = 0
-        #
-        # # Increase the photo count and update the database.
-        # photo.like_count = photo.like_count + 1
-        # photo.put()
-        #
-        # # === 3: Send a response. ===
-        # # Send the updated count back to the client.
-        # self.response.write(photo.like_count)
+        self.response.write(user.current_score)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),

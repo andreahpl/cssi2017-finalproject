@@ -19,11 +19,13 @@
       <th>Score (Timed)</th>
       <th>Score (Set of 10)</th>
     </tr>
+    {% for user in users %}
     <tr>
+      <td>{{user.email}}</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>{{user.score}}</td>
     </tr>
+    {% endfor %}
   </table>
 </body>
 

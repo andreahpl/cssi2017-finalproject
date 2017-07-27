@@ -22,6 +22,16 @@
       {% endfor %}
     </div>
     {% endfor %}
+    <div class="scoreScreen">
+      Your Score:<br>
+      <span id="score">{{user.current_score}}</span>
+      <a href="/game-page">
+        <button>Play Again</button>
+      </a>
+      <a href="/game-menu">
+        <button>Go Back To Menu</button>
+      </a>
+    </div>
   </div>
 
   <!-- Linking Javascript files -->
