@@ -20,6 +20,7 @@
       {% for answer in question['answers']%}
         <button data-question-key='{{question['question_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
       {% endfor %}
+      <div id="correct-incorrect-img"></div>
     </div>
     {% endfor %}
   </div>

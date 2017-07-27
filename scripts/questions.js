@@ -12,10 +12,10 @@ function checkQuestion(buttonElement) {
           //Changes the text within the span id'd "score"
           $('#score').text(values.score);
           if (values.correct) {
-            $(buttonElement).css({"background-color":"green"});
+            $(buttonElement).css({"background-color":"#009000"});
           }
           else {
-            $(buttonElement).css({"background-color":"red"});
+            $(buttonElement).css({"background-color":"#ff0000"});
           }
 
           setTimeout(advanceQuestion, 1000);

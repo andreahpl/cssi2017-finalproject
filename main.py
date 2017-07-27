@@ -233,17 +233,9 @@ class ScoreHandler(webapp2.RequestHandler):
         # TODO: Check if the answer is correct, if so update the score.
         correct_answer = q_key.get().correct_answer
 
-        #styles = {}
-
         if answer == correct_answer:
             user.current_score += 1
             user.put()
-
-            '''
-            styles[answer] = "background-color: green;"
-        else:
-            styles[answer] = "background-color: red;"
-            '''
 
             if user.current_score > user.score:
                 user.score = user.current_score
