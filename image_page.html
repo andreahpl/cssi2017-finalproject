@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Great Brain Game - Game Page</title>
+  <link href="../stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <!-- Button to go back to Game Menu -->
+  <a href="/game-menu">
+    <button class="back-button">Go Back To Menu</button>
+  </a>
+
+  <h2>Questions</h2>
+  <div class ='questions' id="myDIV">
+    {% for question in questions %}
+    <div class='qna' style="display:none">
+      <p class="question">{{question['question'] }}</p><br>
+      {% for answer in question['answers']%}
+        <button data-question-key='{{question['question_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+
+
+<!--Box is created to contain image questions-->
+  <div class="boxed">
+    This text is enclosed in a box.
+  </div>
+
+  <style>
+  .boxed {
+  border: 1px solid green ;
+}
+  </style>
+
+
+  <!-- Linking Javascript files -->
+  <script src="../scripts/questions.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
