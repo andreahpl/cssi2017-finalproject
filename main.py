@@ -123,7 +123,8 @@ class GamePageHandler(webapp2.RequestHandler):
             random_set_10.append(
             {
             'question': question.question_text,
-            'answers': answers
+            'answers': answers,
+            'question_key': question.key.urlsafe()
             }
             )
 
@@ -154,6 +155,43 @@ class SubmitQuestionsHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/submit-questions.html')
         self.response.write(template.render())
 
+class ScoreHandler(webapp2.RequestHandler):
+    def post(self):
+
+        q_key = self.request.get('question_key')
+        answer = self.request.get('answer')
+
+        # TODO: Check if the answer is correct, if so update the score.
+
+        print q_key, answer
+
+
+
+        # TODO: Later, possibly return the score.
+        # self.response.write
+
+        # Handles increasing the scores when you click the button.
+                # === 1: Get info from the request. ===
+        # urlsafe_key = self.request.get('photo_key')
+        #
+        # # === 2: Interact with the database. ===
+        #
+        # # Use the URLsafe key to get the photo from the DB.
+        # photo_key = ndb.Key(urlsafe=urlsafe_key)
+        # photo = photo_key.get()
+        #
+        # # Fix the photo like count just in case it is None.
+        # if photo.like_count == None:
+        #     photo.like_count = 0
+        #
+        # # Increase the photo count and update the database.
+        # photo.like_count = photo.like_count + 1
+        # photo.put()
+        #
+        # # === 3: Send a response. ===
+        # # Send the updated count back to the client.
+        # self.response.write(photo.like_count)
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/game-menu', GameMenuHandler),
@@ -161,4 +199,5 @@ app = webapp2.WSGIApplication([
     ('/profile-page', ProfilePageHandler),
     ('/leaderboard', LeaderboardHandler),
     ('/submit-questions', SubmitQuestionsHandler),
+    ('/score', ScoreHandler)
 ], debug=True)

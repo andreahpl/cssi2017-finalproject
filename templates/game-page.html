@@ -13,7 +13,7 @@
     <div class='qna' style="display:none">
       <p class="question">{{question['question'] }}</p><br>
       {% for answer in question['answers']%}
-        <button class="answer" onclick="advanceQuestion()">{{ answer }}</button>
+        <button data-question-key='{{question['question_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
       {% endfor %}
     </div>
     {% endfor %}
