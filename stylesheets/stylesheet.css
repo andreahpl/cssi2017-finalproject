@@ -150,3 +150,9 @@ tr:nth-child(even) {
   font-size: 1em;
   margin: 1em;
 }
+
+/* Submit Questions Page */
+textarea {
+  margin-top: 0.5em;
+  resize: none;
+}
