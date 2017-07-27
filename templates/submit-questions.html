@@ -12,14 +12,12 @@
     <button class="back-button">Go Back To Menu</button>
   </a>
 
-  <form action="/" method="POST">
-    <h4>Insert a question.</h4>
+  <form id="submit-questions-form" action="/submit-questions" method="POST">
+    <h4 style="padding-top: 1em;">Insert a question.</h4>
     <input type="text" placeholder="Question" name="question_text">
     <h4>Insert 4 answer choices. <em>(Insert the correct answer as Choice A!)</em></h4>
-    Choice A: <input type="text" placeholder="Choice A" name="correct_answer"><br><br>
-    Choice B: <input type="text" placeholder="Choice B" name="incorrect_answers"><br><br>
-    Choice C: <input type="text" placeholder="Choice C" name="incorrect_answers"><br><br>
-    Choice D: <input type="text" placeholder="Choice D" name="incorrect_answers"><br><br>
+    Choice A:<br><input type="text" placeholder="Correct Answer" name="correct_answer"><br><br>
+    Choice B,C,D (Separated by commas but no space):<br><textarea rows="5" cols="50" name="incorrect_answers"></textarea><br><br>
     <button id="submit-button">Submit</button>
   </form>
 </body>

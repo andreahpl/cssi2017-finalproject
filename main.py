@@ -175,10 +175,13 @@ class SubmitQuestionsHandler(webapp2.RequestHandler):
     def post(self):
         question_text = self.request.get('question_text')
         correct_answer = self.request.get('correct_answer')
-        incorrect_answers = self.request.get('incorrect_answers')
-        new_question = Question(question_text=question_text, correct_answer=correct_answer, incorrect_answers=incorrect_answers)
+        # Turns user input into a string
+        incorrect_answers = str(self.request.get('incorrect_answers'))
+        # Turns the string into a list
+        incorrect_answers_list = incorrect_answers.split(',')
+        new_question = Question(question_text=question_text, correct_answer=correct_answer, incorrect_answers=incorrect_answers_list)
         new_question.put()
-        self.redirect("/")
+        self.redirect("/game-menu")
 
 class ScoreHandler(webapp2.RequestHandler):
     def post(self):
