@@ -242,11 +242,11 @@ class ImagePageHandler(webapp2.RequestHandler):
 
         if answer == correct_answer:
 
-            user.current_score += 1
+            user.current_image_score += 1
             user.put()
 
-            if user.current_score > user.image_high_score:
-                user.image_high_score = user.current_score
+            if user.current_image_score > user.image_high_score:
+                user.image_high_score = user.current_image_score
                 user.put()
 
 
@@ -343,12 +343,12 @@ class ImageScoreHandler(webapp2.RequestHandler):
             if user.current_image_score > user.image_high_score:
                 user.image_high_score = user.current_image_score
                 user.put()
-        response = {
+        response2 = {
             "score": user.current_image_score,
             "correct": answer == correct_answer,
         }
 
-        self.response.write(json.dumps(response))
+        self.response.write(json.dumps(response2))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
