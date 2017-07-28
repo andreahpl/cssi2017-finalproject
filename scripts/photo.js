@@ -1,6 +1,7 @@
 var current_photo = 0;
 document.getElementsByClassName('qna')[0].style.display = "block";
 document.getElementsByClassName('scoreScreen')[0].style.display = "none";
+document.getElementsByClassName('picture-question').style.transform = "scale(10)";
 function checkQuestion(buttonElement) {
       // TODO: Get all info needed from the button.dataset and button.innerText.
       console.log(buttonElement.dataset.photoKey);
@@ -10,15 +11,17 @@ function checkQuestion(buttonElement) {
         answer: buttonElement.innerText}, function(response2){
           var values = JSON.parse(response2);
           //Changes the text within the span id'd "score"
-          $('#score').text(values.score);
+          $('#score').text(values.image_score);
           if (values.correct) {
             $(buttonElement).css({"background-color":"#009000"});
+            $('.picture-question').css({"transform" : "scale(1)"});
           }
           else {
             $(buttonElement).css({"background-color":"#ff0000"});
+            $('.picture-question').css({"transform" : "scale(1)"});
           }
+          setTimeout(advanceQuestion, 3000);
 
-          setTimeout(advanceQuestion, 1000);
         });
 }
 
