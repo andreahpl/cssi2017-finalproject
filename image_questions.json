@@ -77,8 +77,8 @@
           "correct_answer":"Burger",
           "incorrect_answers":["Tongue","Mixed Fruit","Salad"]},
     {
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Popeyes_Cajun_Battered_.JPG/1280px-Popeyes_Cajun_Battered_.JPG",
-          "correct_answer":"",
+          "photo_url": "https://c2.staticflickr.com/6/5672/22292882544_8540282dd3_b.jpg",
+          "correct_answer":"Fries",
           "incorrect_answers":["Pretzel Sticks","Fried Rice","Cheese"]},
     {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Chocolate_Frosted_Donut_%28Coffee_An%29%2C_Westport%2C_CT_06880_USA_-_Mar_2013.jpg",
@@ -236,7 +236,7 @@
           "incorrect_answers":["Da Faq","Mr. Krabs","Random Person"]},
 {
 
-          "photo_url": "https://c1.staticflickr.com/6/5161/5216475792_28c70f2e79_b.jpg",
+          "photo_url": "http://www.stacksmag.net/wp-content/uploads/2013/05/chancetherapper-acidrap.jpg",
           "correct_answer":"Acid Rap",
           "incorrect_answers":["Coloring Book","Graduation","10 Days"]},
 {
