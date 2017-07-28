@@ -11,7 +11,7 @@ function checkQuestion(buttonElement) {
         answer: buttonElement.innerText}, function(response2){
           var values = JSON.parse(response2);
           //Changes the text within the span id'd "score"
-          $('#score').text(values.image_score);
+          $('#score').text(values.score);
           if (values.correct) {
             $(buttonElement).css({"background-color":"#009000"});
             $('.picture-question').css({"transform" : "scale(1)"});

@@ -344,7 +344,7 @@ class ImageScoreHandler(webapp2.RequestHandler):
                 user.image_high_score = user.current_image_score
                 user.put()
         response2 = {
-            "image_score": user.current_image_score,
+            "score": user.current_image_score,
             "correct": answer == correct_answer,
         }
 
