@@ -12,21 +12,33 @@
     <button class="back-button">Go Back To Menu</button>
   </a>
 
-  <!-- Leaderboard Chart/Table -->
+  <!-- Leaderboard (Trivia) -->
   <table>
     <tr>
       <th>Name</th>
-      <th>Score (Guess the Pic!)</th>
       <th>Score (Trivia)</th>
     </tr>
     {% for user in users %}
     <tr>
       <td>{{user.email}}</td>
-      <td>{{user.image_high_score}}</td>
       <td>{{user.score}}</td>
     </tr>
     {% endfor %}
   </table>
+  <!-- Leaderboard (Guess the Pic! -->
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Score (Guess the Pic!)</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+      <td>{{user.email}}</td>
+      <td>{{user.image_high_score}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
 </body>
 
 </html>

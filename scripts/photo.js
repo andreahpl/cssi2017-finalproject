@@ -1,7 +1,8 @@
 var current_photo = 0;
 document.getElementsByClassName('qna')[0].style.display = "block";
 document.getElementsByClassName('scoreScreen')[0].style.display = "none";
-document.getElementsByClassName('picture-question').style.transform = "scale(10)";
+var image = document.getElementsByClassName('picture-question')[0];
+document.getElementsByClassName('picture-question')[0].style.transform = "scale(8)";
 function checkQuestion(buttonElement) {
       // TODO: Get all info needed from the button.dataset and button.innerText.
       console.log(buttonElement.dataset.photoKey);
@@ -20,7 +21,7 @@ function checkQuestion(buttonElement) {
             $(buttonElement).css({"background-color":"#ff0000"});
             $('.picture-question').css({"transform" : "scale(1)"});
           }
-          setTimeout(advanceQuestion, 3000);
+          setTimeout(advanceQuestion, 1000);
 
         });
 }

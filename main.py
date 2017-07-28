@@ -269,10 +269,13 @@ class ProfilePageHandler(webapp2.RequestHandler):
 class LeaderboardHandler(webapp2.RequestHandler):
     def get(self):
         user_query = User.query().order(-User.score)
+        user_image_query = User.query().order(-User.image_high_score)
         users = user_query.fetch()
+        users2 = user_image_query.fetch()
 
         template_vars = {
-            'users': users
+            'users': users,
+            'users2': users2,
         }
         template = jinja_environment.get_template('templates/leaderboard.html')
         self.response.write(template.render(template_vars))

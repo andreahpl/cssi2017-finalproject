@@ -116,6 +116,7 @@ input {
 
 /* Tables */
 table {
+  display: inline-block;
   margin: 0 auto;
   border: 1px solid gray;
   border-collapse: collapse;
@@ -124,7 +125,7 @@ table {
 
 td, th {
   border: 1px solid gray;
-  width: 18em;
+  width: 12em;
 }
 
 tr:nth-child(odd) {
@@ -165,7 +166,7 @@ tr:nth-child(even) {
   height: 400px;
   max-width: 400px;
   max-height: 400px;
-  transform: scale(10);
+  transform: scale(8);
 }
 
 .scoreScreen {

@@ -18,7 +18,7 @@ function checkQuestion(buttonElement) {
             $(buttonElement).css({"background-color":"#ff0000"});
           }
 
-          setTimeout(advanceQuestion, 1000);
+          setTimeout(advanceQuestion, 500);
         });
 }
 
