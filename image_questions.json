@@ -14,10 +14,7 @@
           "incorrect_answers":["Sand","Rock","Feather"]
 
     },
-    {
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/What_is_your_problem%2C_graffiti_rock_-_Flickr_-_daveynin.jp",
-          "correct_answer":"Rocks",
-          "incorrect_answers":["Concrete","Sand Dunes","Mountain"]},
+
     {
 
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/20100726_Kalamitsi_Beach_Ionian_Sea_Lefkada_island_Greece.jpg",
@@ -87,10 +84,7 @@
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Chocolate_Frosted_Donut_%28Coffee_An%29%2C_Westport%2C_CT_06880_USA_-_Mar_2013.jpg",
           "correct_answer":"Donut",
           "incorrect_answers":["Cement","Sunglasses","Closed Fist"]},
-    {
-          "photo_url": "https://c1.staticflickr.com/4/3279/2321216938_27871edd0b_b.jpg",
-          "correct_answer":"A happy cheese",
-          "incorrect_answers":["Mustard","Butter","Graffiti"]},
+
     {
           "photo_url": "https://c1.staticflickr.com/1/85/238598564_47bf24812c_b.jpg",
           "correct_answer":"Spongebob",
@@ -143,10 +137,7 @@
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Ihave_too_much_pimples_on_my_face_what_should_I_do_2013-12-20_13-01.jpg",
           "correct_answer":"Acne",
           "incorrect_answers":["Plastic Wrap","Raw Chicken","Salmon"]},
-{
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Fissured_Tongue.JPG/1024px-Fissured_Tongue.JPG",
-          "correct_answer":"Tongue",
-          "incorrect_answers":["Sponge","Brain","Sherbert"]},
+
 {
           "photo_url": "https://c1.staticflickr.com/9/8470/8150201071_46508af2f2_b.jpg",
           "correct_answer":"Beemo",
