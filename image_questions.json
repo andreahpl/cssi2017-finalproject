@@ -76,10 +76,7 @@
           "photo_url": "https://static.pexels.com/photos/161519/abstract-barbecue-barbeque-bbq-161519.jpeg",
           "correct_answer":"Burger",
           "incorrect_answers":["Tongue","Mixed Fruit","Salad"]},
-    {
-          "photo_url": "https://c2.staticflickr.com/6/5672/22292882544_8540282dd3_b.jpg",
-          "correct_answer":"Fries",
-          "incorrect_answers":["Pretzel Sticks","Fried Rice","Cheese"]},
+  
     {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Chocolate_Frosted_Donut_%28Coffee_An%29%2C_Westport%2C_CT_06880_USA_-_Mar_2013.jpg",
           "correct_answer":"Donut",
