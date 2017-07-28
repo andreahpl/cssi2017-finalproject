@@ -77,6 +77,7 @@ class User(ndb.Model):
     score = ndb.IntegerProperty(default=0)
     current_score = ndb.IntegerProperty(default=0)
     image_high_score = ndb.IntegerProperty(default=0)
+    current_image_score = ndb.IntegerProperty(default=0)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -199,13 +200,13 @@ class ImagePageHandler(webapp2.RequestHandler):
             user = User(email=current_user_email)
             user.put()
 
-        user.current_score = 0
+        user.current_image_score = 0
         user.put()
 
 
         # Randomized set of 10 questions.
         random_set_10=[]
-        photo_list = random.sample(questions, 10)
+        photo_list = random.sample(photos, 10)
         for photo in photo_list:
             answers = photo.incorrect_answers
             answers.append(photo.correct_answer)
@@ -320,6 +321,35 @@ class ScoreHandler(webapp2.RequestHandler):
 
         self.response.write(json.dumps(response))
 
+class ImageScoreHandler(webapp2.RequestHandler):
+    def post(self):
+        current_user_email = users.get_current_user().email()
+        # Find the user entity where the entity's email matches the current user's email
+        user_query = User.query(User.email == current_user_email)
+        user = user_query.get()
+
+        p_key_url = self.request.get('photo_key')
+        answer = self.request.get('answer')
+
+        p_key = ndb.Key(urlsafe=p_key_url)
+
+        # TODO: Check if the answer is correct, if so update the score.
+        correct_answer = p_key.get().correct_answer
+
+        if answer == correct_answer:
+            user.current_image_score += 1
+            user.put()
+
+            if user.current_image_score > user.image_high_score:
+                user.image_high_score = user.current_image_score
+                user.put()
+        response = {
+            "score": user.current_image_score,
+            "correct": answer == correct_answer,
+        }
+
+        self.response.write(json.dumps(response))
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/game-menu', GameMenuHandler),
@@ -328,5 +358,6 @@ app = webapp2.WSGIApplication([
     ('/leaderboard', LeaderboardHandler),
     ('/submit-questions', SubmitQuestionsHandler),
     ('/score', ScoreHandler),
-    ('/image-page', ImagePageHandler)
+    ('/image-page', ImagePageHandler),
+    ('/image-score', ImageScoreHandler)
 ], debug=True)
