@@ -159,6 +159,10 @@ tr:nth-child(even) {
   margin-top: 1em;
 }
 
+.correct-answer-img {
+  z-index: 2;
+}
+
 .score-display {
   background-color: rgba(255,255,255,0.75);
   border: 2px solid lightpink;

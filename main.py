@@ -205,7 +205,7 @@ class ImagePageHandler(webapp2.RequestHandler):
 
         # Randomized set of 10 questions.
         random_set_10=[]
-        photo_list = random.sample(questions, 10)
+        photo_list = random.sample(photos, 10)
         for photo in photo_list:
             answers = photo.incorrect_answers
             answers.append(photo.correct_answer)
