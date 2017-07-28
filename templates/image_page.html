@@ -20,7 +20,7 @@
       <img src='{{photo.photo}}' width='70' height='70'>
       </div>
       {% for answer in photo['answers']%}
-        <button data-photo-key='{{photo['photo_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
+        <button data-photo-key='{{photo['photo_key']}}' class="answer" onclick="checkQuestion(this)">{{ answer }}</button>
       {% endfor %}
     </div>
     {% endfor %}
