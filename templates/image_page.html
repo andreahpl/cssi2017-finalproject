@@ -17,7 +17,7 @@
     {% for photo in photos %}
     <div class='qna' style="display:none">
         <div class="boxed">
-      <img src='{{photo.photo}}' width='70' height='70'>
+      <img src='{{photo.photo}}' width='200' height='200'>
       </div>
       {% for answer in photo['answers']%}
         <button data-photo-key='{{photo['photo_key']}}' class="answer" onclick="checkQuestion(this)">{{ answer }}</button>
