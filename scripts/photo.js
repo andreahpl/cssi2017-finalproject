@@ -29,6 +29,7 @@ function checkQuestion(buttonElement) {
 function advanceQuestion() {
     var photos = document.getElementsByClassName('qna');
     photos[current_photo].style.display = 'none';
+    $('.picture-question').css({"transform":"scale(8)"});
     current_photo += 1;
 
     if(current_photo == 10) {
