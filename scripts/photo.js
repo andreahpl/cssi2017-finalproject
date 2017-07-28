@@ -6,9 +6,9 @@ function checkQuestion(buttonElement) {
       console.log(buttonElement.dataset.photoKey);
       console.log(buttonElement.innerText);
 
-      $.post('/score', {photo_key: buttonElement.dataset.photoKey,
-        answer: buttonElement.innerText}, function(response){
-          var values = JSON.parse(response);
+      $.post('/image-score', {photo_key: buttonElement.dataset.photoKey,
+        answer: buttonElement.innerText}, function(response2){
+          var values = JSON.parse(response2);
           //Changes the text within the span id'd "score"
           $('#score').text(values.score);
           if (values.correct) {
@@ -33,6 +33,6 @@ function advanceQuestion() {
       scoreScreen.style.display = "block";
     }
     else {
-      questions[current_question].style.display = 'block';
+      photos[current_photo].style.display = 'block';
   }
 }

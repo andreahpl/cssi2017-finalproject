@@ -17,10 +17,10 @@
     {% for photo in photos %}
     <div class='qna' style="display:none">
         <div class="boxed">
-      <img src='{{photo.photo}}'>
+      <img src='{{photo.photo}}' width='70' height='70'>
       </div>
-      {% for answer in [photo]['answers']%}
-        <button data-photo-key="{{photo['photo_key']}}" class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
+      {% for answer in photo['answers']%}
+        <button data-photo-key='{{photo['photo_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
       {% endfor %}
     </div>
     {% endfor %}
