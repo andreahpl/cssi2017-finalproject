@@ -12,34 +12,51 @@
     <button class="back-button">Go Back To Menu</button>
   </a>
 
-  <h2>Questions</h2>
-  <div class ='questions' id="myDIV">
-    {% for question in questions %}
+  <h2>What is this?</h2>
+  <div class ='photos' id="myDIV">
+    {% for photo in photos %}
     <div class='qna' style="display:none">
-      <p class="question">{{question['question'] }}</p><br>
-      {% for answer in question['answers']%}
-        <button data-question-key='{{question['question_key']}}' class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
+        <div class="boxed">
+      <img src='{{photo.photo}}'>
+      </div>
+      {% for answer in [photo]['answers']%}
+        <button data-photo-key="{{photo['photo_key']}}" class="answer" onclick="advanceQuestion(this)">{{ answer }}</button>
       {% endfor %}
-      <div id="correct-incorrect-img"></div>
     </div>
     {% endfor %}
+    <div class="scoreScreen">
+      <div class="score-display">
+        Your Score:<br>
+        <span id="score">{{user.current_image_score}}</span>
+      </div>
+      <a href="/image_page">
+        <button>Play Again</button>
+      </a>
+      <a href="/game-menu">
+        <button>Go Back To Menu</button>
+      </a>
+    </div>
   </div>
 
 
-<!--Box is created to contain image questions-->
-  <div class="boxed">
-    This text is enclosed in a box.
-  </div>
 
-  <style>
-  .boxed {
+</div>
+
+<style>
+.boxed {
   border: 1px solid green ;
+  width: 200;
+  height: 200;
 }
-  </style>
+</style>
+
+
+
+
 
 
   <!-- Linking Javascript files -->
-  <script src="../scripts/questions.js"></script>
+  <script src="../scripts/photo.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
