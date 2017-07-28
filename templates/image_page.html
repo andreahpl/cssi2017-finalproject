@@ -15,9 +15,9 @@
   <h2>What is this?</h2>
   <div class ='photos' id="myDIV">
     {% for photo in photos %}
-    <div class='qna' style="display:none">
-        <div class="boxed">
-      <img src='{{photo.photo}}' width='200' height='200'>
+    <div class='qna' style="display:none;">
+      <div class="boxed">
+        <img src='{{photo.photo}}' class="picture-question">
       </div>
       {% for answer in photo['answers']%}
         <button data-photo-key='{{photo['photo_key']}}' class="answer" onclick="checkQuestion(this)">{{ answer }}</button>
@@ -41,15 +41,6 @@
 
 
 </div>
-
-<style>
-.boxed {
-  border: 1px solid green ;
-  width: 200;
-  height: 200;
-}
-</style>
-
 
 
 

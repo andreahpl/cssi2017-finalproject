@@ -135,7 +135,7 @@ tr:nth-child(even) {
   background-color: rgba(160,160,160,0.75);
 }
 
-/* Game Page */
+/* Game Pages (Pic and Trivia)*/
 .question {
   display: inline-block;
   font-size: 1.75em;
@@ -150,6 +150,22 @@ tr:nth-child(even) {
   width: 35%;
   font-size: 1em;
   margin: 1em;
+}
+
+.boxed {
+  border: 1px solid green ;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.picture-question {
+  width: 400px;
+  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
+  transform: scale(10);
 }
 
 .scoreScreen {
