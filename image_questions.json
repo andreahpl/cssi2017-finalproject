@@ -18,7 +18,7 @@
     {
 
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/20100726_Kalamitsi_Beach_Ionian_Sea_Lefkada_island_Greece.jpg",
-          "correct_answer":"Da Beach",
+          "correct_answer":"The Beach",
           "incorrect_answers":["Mouth Wash","Cloud","Soda"]},
     {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/BarackObamaportrait.jpg",
@@ -76,7 +76,7 @@
           "photo_url": "https://static.pexels.com/photos/161519/abstract-barbecue-barbeque-bbq-161519.jpeg",
           "correct_answer":"Burger",
           "incorrect_answers":["Tongue","Mixed Fruit","Salad"]},
-  
+
     {
           "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Chocolate_Frosted_Donut_%28Coffee_An%29%2C_Westport%2C_CT_06880_USA_-_Mar_2013.jpg",
           "correct_answer":"Donut",
